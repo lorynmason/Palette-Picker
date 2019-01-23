@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
+  <title>Palette Picker</title>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Palette Picker</h1>
+      <button class="new-palette">Generate New Palette</button>
+      <div class="div-save-palette">
+        <label class="custom-select" for="styledSelect1">
+          <select id="styledSelect1" name="options">
+            <option value="">
+              Select an option
+            </option>
+            <option value="1">
+              Option 1
+            </option>
+            <option value="2">
+              Option 2
+            </option>
+            <option value="3">
+              Option 3
+            </option>
+            <option value="4">
+              Option 4
+            </option>
+          </select>
+        </label>
+        <input class="new-project-name" placeholder="New Palette Name"/>
+      </div>
+      <button class="save-palette">Save Palette</button>
+    </header>
+    <section class="palette-display">
+      <div class="color color-1"></div>
+      <div class="color color-2"></div>
+      <div class="color color-3"></div>
+      <div class="color color-4"></div>
+      <div class="color color-5"></div>
+    </section>
+    <section class="new-projects">
+      <h3>Create New Project</h3>
+      <input class="new-project-name" placeholder="New Project Name"/>
+      <button class="save-project-name">Save</button>
+    </section>
+    <section class="my-projects">
+      <h3>My Projects</h3>
+      <section class="project-list"></section>
+    </section> 
+    
+  </main>
+</body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery</script>
+  <script type="text/javascript" src="scripts.js"></script>
+</html>
