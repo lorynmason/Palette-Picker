@@ -38,6 +38,7 @@ button {
   display: block;
   box-shadow: 8px 10px 14px black;
   border-radius: 5px;
+  transition: ease all .7s;
 }
 
 button:hover {
@@ -105,26 +106,12 @@ input {
 .color {
   height: 140px;
   width: 100%;
+  transition: ease all 1s;
 }
 
-.color-1 {
-  background: green;
-}
-
-.color-2 {
-  background: rgb(1, 58, 1);
-}
-
-.color-3 {
-  background: rgb(3, 196, 147);
-}
-
-.color-4 {
-  background: rgb(20, 174, 194);
-}
-
-.color-5 {
-  background: rgb(23, 160, 57);
+i {
+  font-size: 4rem;
+  text-align: center;
 }
 
 /* new-project */
