@@ -7,7 +7,7 @@ main {
 /* header */
 
 header {
-  background: rgb(37, 37, 37);
+  background: rgb(48, 47, 47);
   color: rgb(246, 240, 240);
   display: flex;
   flex-direction: column;
@@ -26,6 +26,10 @@ header h1 {
   text-shadow: 8px 10px 14px black;
 }
 
+.new-palette {
+  margin-top: 40px;
+}
+
 button {
   border: none;
   outline: none;
@@ -42,7 +46,7 @@ button {
 }
 
 button:hover {
-  background: rgb(86, 37, 177);
+  background: rgb(77, 129, 212);
   color: white;
   cursor: pointer;
 }
@@ -51,8 +55,8 @@ button:hover {
   position: relative;
   display: inline-block;
   width: 200px;
-  margin: 0 auto;
-  border: 1px solid #3C1C78;
+  margin: 0 5px;
+  border: 1px solid rgb(77, 129, 212);
   background-color: rgb(246, 240, 240);
   z-index: 10;
 }
@@ -65,7 +69,6 @@ button:hover {
   appearance: none;
   border-radius: 0;
   margin: 0;
-  /* display: block; */
   width: 100%;
   padding: 12px 55px 15px 15px;
   font-size: 14px;
@@ -87,14 +90,19 @@ button:hover {
 }
 
 input {
-  /* display: inline; */
-  margin: 0 auto;
+  margin: 0 5px;
   border: none;
   outline: none;
   background: rgb(246, 240, 240);
   color: black;
   font-family: 'Contrail One', cursive;
   font-size: 1.8rem;
+}
+
+.div-save-palette {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
 
 /* palette-picker */
@@ -107,11 +115,25 @@ input {
   height: 140px;
   width: 100%;
   transition: ease all 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-i {
-  font-size: 4rem;
+i, p {
+  font-family: 'Cookie', cursive;  
+  font-size: 2.5rem;
   text-align: center;
+  color: rgb(37, 37, 37);
+  margin: 5px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-shadow: 
+    .5px .5px #FFF,
+    -.5px -.5px #FFF, 
+    -.5px .5px #FFF, 
+    .5px -.5px #FFF;
 }
 
 /* new-project */
@@ -128,8 +150,7 @@ h3 {
 }
 
 .my-projects {
-  background: rgb(37, 37, 37);
-  
+  background: rgb(48, 47, 47);
 }
 .my-projects h3 {
   color: rgb(246, 240, 240);
