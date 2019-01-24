@@ -3,15 +3,13 @@ let projectsData = [{
   name: 'Project 1', 
   palettes: [
     {
-      id: 1, 
       color_1: '#88F2B1', 
       color_2: '#4BC914', 
       color_3: '#6DF8CB', 
       color_4: '#12B795', 
       color_5: '#149486', 
       name: 'greens' 
-    }, {
-      id: 2, 
+    }, { 
       color_1: '#88F2B1', 
       color_2: '#4BC914', 
       color_3: '#6DF8CB', 
@@ -25,7 +23,6 @@ let projectsData = [{
     name: 'Project 2', 
     palettes: [
       {
-        id: 1, 
         color_1: '#88F2B1', 
         color_2: '#4BC914', 
         color_3: '#6DF8CB', 
@@ -33,7 +30,6 @@ let projectsData = [{
         color_5: '#149486', 
         name: 'greens' 
       }, {
-        id: 2, 
         color_1: '#88F2B1', 
         color_2: '#4BC914', 
         color_3: '#6DF8CB', 
