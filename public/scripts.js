@@ -1,14 +1,33 @@
+const postProject = async() => {
+  const projectName = $('.new-project-name').val()
+  const response = await fetch('/api/projects', {
+    
+  })
+  if(!response.ok) {
+    throw Error(response.statusText)
+  }
+  const projects = await response.json() 
+  displayProjects(projects)
+}
+
 const fetchProjects = async () => {
   const response = await fetch('/api/projects')
   if(!response.ok) {
     throw Error(response.statusText)
   }
-  const results = await response.json() 
-  displayProjects(results)
+  const projects = await response.json() 
+  displayProjects(projects)
 }
 
-const displayProjects = (results) => {
-  console.log(results)
+const fetchPalettes = async () => {
+
+}
+
+const displayProjects = (projects) => {
+  console.log(projects)
+  projects.map(project => {
+
+  })
 }
 
 const randomHex = () => {
@@ -63,3 +82,5 @@ $('i').on('click', (e) => {
     $(e.target).removeClass('fa-lock').addClass('fa-unlock')
   }
 })
+
+$('.save-project-name').on('click', postProject)
