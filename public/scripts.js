@@ -9,7 +9,6 @@ const fetchProjects = async () => {
 
 const displayProjects = (results) => {
   console.log(results)
-  
 }
 
 const randomHex = () => {
