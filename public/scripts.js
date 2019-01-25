@@ -1,13 +1,20 @@
 const postProject = async() => {
   const projectName = $('.new-project-name').val()
   const response = await fetch('/api/projects', {
-    
-  })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: projectName
+        })
+      })
   if(!response.ok) {
     throw Error(response.statusText)
   }
-  const projects = await response.json() 
-  displayProjects(projects)
+  const project = await response.json() 
+  // displayProjects(projects)
+  fetchProjects()
 }
 
 const fetchProjects = async () => {

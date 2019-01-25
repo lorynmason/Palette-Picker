@@ -43,7 +43,6 @@ app.get('/api/projects', (request, response) => {
 
 app.post('/api/projects', (request, response) => {
   const project = request.body;
-
   for (let requiredParameter of ['name']) {
     if (!project[requiredParameter]) {
       return response
@@ -51,7 +50,6 @@ app.post('/api/projects', (request, response) => {
         .send({ error: `Expected format: { name: <String> }. You're missing a "${requiredParameter}" property.` });
     }
   }
-
   database('projects').insert(project, 'id')
     .then(project => {
       response.status(201).json({ id: project[0] })
