@@ -1,3 +1,17 @@
+const fetchProjects = async () => {
+  const response = await fetch('/api/projects')
+  if(!response.ok) {
+    throw Error(response.statusText)
+  }
+  const results = await response.json() 
+  displayProjects(results)
+}
+
+const displayProjects = (results) => {
+  console.log(results)
+  
+}
+
 const randomHex = () => {
   let color = '#'
   for(let i = 0; i <= 5; i++) {
@@ -39,6 +53,7 @@ const displayPalette = (palette) => {
 }
 
 randomPalette()
+fetchProjects()
 
 $('.new-palette').on('click', randomPalette)
 
