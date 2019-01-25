@@ -84,6 +84,6 @@ app.post('/api/palettes', (request, response) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('Express Intro running on localhost:3000');
+app.listen(app.get('port'), () => {
+  console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
