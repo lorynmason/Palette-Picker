@@ -11,10 +11,9 @@ const postProject = async() => {
       })
   if(!response.ok) {
     throw Error(response.statusText)
-  }
-  const project = await response.json() 
-  // displayProjects(projects)
+  } 
   fetchProjects()
+  $('.new-project-name').val('')
 }
 
 const fetchProjects = async () => {
