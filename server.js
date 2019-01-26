@@ -75,17 +75,21 @@ app.get('/api/palettes', (request, response) => {
 // });
 
 app.post('/api/palettes', (request, response) => {
-  const id = Date.now();
-  const palette = request.body.palette;
-
-  if (!palette) {
-    return response.status(422).send({
-      error: 'No palette property provided'
-    });
-  } else {
-    app.locals.palettes.push({ id, ...palette });
-    return response.status(201).json({ id });
+  const palette = request.body;
+  for (let requiredParameter of ['name', 'color_1', 'color_2', 'color_3', 'color_4', 'color_5', 'project_id']) {
+    if (!palette[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, color1: <String>, color2: <String>, color3: <String>, color4: <String>, color5: <String>, project_id: <Number> }. You're missing a "${requiredParameter}" property.` });
+    }
   }
+  database('palettes').insert(palette, 'id')
+    .then(palette => {
+      response.status(201).json({ id: palette[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
 });
 
 app.listen(app.get('port'), () => {

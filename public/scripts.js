@@ -32,6 +32,18 @@ const updateProjectList = (project, count) => {
     </option>`)
 }
 
+const postPalette = () => {
+  const paletteName = $('.new-palette-name').val()
+  // console.log(paletteName)
+  const selectedProject = $('#styledSelect1').find(":selected").text();
+  console.log(selectedProject)
+  const color1 = $('.color-1-hex').text()
+  const color2 = $('.color-2-hex').text()
+  const color3 = $('.color-3-hex').text()
+  const color4 = $('.color-4-hex').text()
+  const color5 = $('.color-5-hex').text()
+}
+
 const fetchPalettes = async () => {
 
 }
@@ -103,3 +115,5 @@ $('i').on('click', (e) => {
 })
 
 $('.save-project-name').on('click', postProject)
+
+$('.save-palette').on('click', postPalette)
