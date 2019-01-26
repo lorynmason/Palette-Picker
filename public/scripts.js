@@ -1,17 +1,17 @@
 const postProject = async() => {
-  const projectName = $('.new-project-name').val()
-  const response = await fetch('/api/projects', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: projectName
-        })
-      })
-  if(!response.ok) {
-    throw Error(response.statusText)
-  } 
+  // const projectName = $('.new-project-name').val()
+  // const response = await fetch('/api/projects', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({
+  //         name: projectName
+  //       })
+  //     })
+  // if(!response.ok) {
+  //   throw Error(response.statusText)
+  // } 
   fetchProjects()
   $('.new-project-name').val('')
 }
@@ -25,15 +25,28 @@ const fetchProjects = async () => {
   displayProjects(projects)
 }
 
+const updateProjectList = (project, count) => {
+  $('#styledSelect1').append(
+    ` <option value=${count}>
+      ${project.name}
+    </option>`)
+}
+
 const fetchPalettes = async () => {
 
 }
 
 const displayProjects = (projects) => {
-  console.log(projects)
+  let count = 0
   projects.map(project => {
-
+    count++
+    displayProjectCard(project)
+    updateProjectList(project, count)
   })
+}
+
+const displayProjectCard = project => {
+  $('.project-list').append(`<div class="project-card"><h4>${project.name}</h4></div>`)
 }
 
 const randomHex = () => {
