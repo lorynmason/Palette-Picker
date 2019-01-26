@@ -1,17 +1,17 @@
 const postProject = async() => {
-  // const projectName = $('.new-project-name').val()
-  // const response = await fetch('/api/projects', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         name: projectName
-  //       })
-  //     })
-  // if(!response.ok) {
-  //   throw Error(response.statusText)
-  // } 
+  const projectName = $('.new-project-name').val()
+  const response = await fetch('/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: projectName
+        })
+      })
+  if(!response.ok) {
+    throw Error(response.statusText)
+  } 
   fetchProjects()
   $('.new-project-name').val('')
 }
@@ -25,23 +25,40 @@ const fetchProjects = async () => {
   displayProjects(projects)
 }
 
-const updateProjectList = (project, count) => {
+const updateProjectList = (project) => {
   $('#styledSelect1').append(
-    ` <option value=${count}>
+    ` <option value=${project.id}>
       ${project.name}
     </option>`)
 }
 
-const postPalette = () => {
+const postPalette = async() => {
   const paletteName = $('.new-palette-name').val()
-  // console.log(paletteName)
-  const selectedProject = $('#styledSelect1').find(":selected").text();
-  console.log(selectedProject)
+  const selectedProject = $('#styledSelect1').find(":selected").val();
   const color1 = $('.color-1-hex').text()
   const color2 = $('.color-2-hex').text()
   const color3 = $('.color-3-hex').text()
   const color4 = $('.color-4-hex').text()
   const color5 = $('.color-5-hex').text()
+  const response = await fetch('/api/palettes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: paletteName,
+          project_id: selectedProject,
+          color_1: color1,
+          color_2: color2,
+          color_3: color3,
+          color_4: color4,
+          color_5: color5
+        })
+      })
+  if(!response.ok) {
+    throw Error(response.statusText)
+  } 
+  console.log(response.ok)
 }
 
 const fetchPalettes = async () => {
@@ -49,11 +66,9 @@ const fetchPalettes = async () => {
 }
 
 const displayProjects = (projects) => {
-  let count = 0
   projects.map(project => {
-    count++
     displayProjectCard(project)
-    updateProjectList(project, count)
+    updateProjectList(project)
   })
 }
 
