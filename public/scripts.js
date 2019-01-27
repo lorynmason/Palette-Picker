@@ -87,21 +87,20 @@ const deletePalette = async (e) => {
   fetchProjects()
 }
 
-const deleteProjects = async (e) => {
-  // const IDs = $(e.target).next().attr("class").split(' ')
-  // const response = await fetch('/api/palettes', {
-  //   method: 'DELETE',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     id: IDs[1],
-  //     project_id: IDs[0]
-  //   })
-  // })
-  // fetchProjects()
+const deleteProject = async (e) => {
+  const id = $(e.target).parent().attr('id')
+  const response = await fetch('/api/projects', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: id
+    })
+  })
+  $(e.target).parent().remove()
+  fetchProjects()
 }
-
 
 const displayProjects = (projects, palettes) => {
   $('.project-list').children().remove()
@@ -119,7 +118,7 @@ const displayProjects = (projects, palettes) => {
 }
 
 const displayProjectCard = project => {
-  $(`.project-list`).append(`<div class="project-card"><i id="exit" class="fas fa-times-circle"></i><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
+  $(`.project-list`).append(`<div class="project-card" id="${project.id}"><i id="exit" class="fas fa-times-circle"></i><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
   project.palettes.map(palette => {
     $(`.palette-list${project.id}`).append(`
     <h6>${palette.name}</h6>
