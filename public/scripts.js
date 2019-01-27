@@ -21,13 +21,14 @@ const fetchProjects = async () => {
   if(!response.ok) {
     throw Error(response.statusText)
   }
-  const projects = await response.json() 
-  displayProjects(projects)
+  const projects = await response.json()
+  const palettes = await fetchPalettes() 
+  displayProjects(projects, palettes)
 }
 
 const updateProjectList = (project) => {
   $('#styledSelect1').append(
-    ` <option value=${project.id}>
+    ` <option class="options" value=${project.id}>
       ${project.name}
     </option>`)
 }
@@ -58,22 +59,57 @@ const postPalette = async() => {
   if(!response.ok) {
     throw Error(response.statusText)
   } 
-  console.log(response.ok)
+  $('.new-palette-name').val('')
+  fetchProjects()
 }
 
 const fetchPalettes = async () => {
-
+  const response = await fetch('/api/palettes')
+  if(!response.ok) {
+    throw Error(response.statusText)
+  }
+  const palettes = await response.json()
+  return palettes
 }
 
-const displayProjects = (projects) => {
+
+const displayProjects = (projects, palettes) => {
+  $('.project-list').children().remove()
+  $('#styledSelect1').children('.options').remove()
   projects.map(project => {
+    project.palettes = []
+    palettes.forEach(palette => {
+      if(project.id === palette.project_id){
+        project.palettes.push(palette)
+      }
+    })
     displayProjectCard(project)
     updateProjectList(project)
   })
 }
 
 const displayProjectCard = project => {
-  $('.project-list').append(`<div class="project-card"><h4>${project.name}</h4></div>`)
+  $(`.project-list`).append(`<div class="project-card"><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
+  project.palettes.map(palette => {
+    $(`.palette-list${project.id}`).append(`
+    <li>
+      <h6>${palette.name}</h6>
+      <div class="project-color ${project.id}-${palette.id}-1"></div>
+      <div class="project-color ${project.id}-${palette.id}-2"></div>
+      <div class="project-color ${project.id}-${palette.id}-3"></div>
+      <div class="project-color ${project.id}-${palette.id}-4"></div>
+      <div class="project-color ${project.id}-${palette.id}-5"></div>
+    </li>`)
+    setColor(project, palette)
+  })
+}
+
+const setColor = (project, palette) => {
+  $(`.${project.id}-${palette.id}-1`).css('background', palette.color_1)
+  $(`.${project.id}-${palette.id}-2`).css('background', palette.color_2)
+  $(`.${project.id}-${palette.id}-3`).css('background', palette.color_3)
+  $(`.${project.id}-${palette.id}-4`).css('background', palette.color_4)
+  $(`.${project.id}-${palette.id}-5`).css('background', palette.color_5)
 }
 
 const randomHex = () => {
