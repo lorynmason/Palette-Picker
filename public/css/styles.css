@@ -71,11 +71,13 @@ h3 {
 
 .save-project-name {
   margin: 10px 0 20px;
+  background: rgb(48, 47, 47);
+  color:rgb(246, 240, 240);
   box-shadow: 4px 5px 7px rgb(150, 149, 149);
 }
 
 .create-new {
-  text-shadow: 4px 5px 7px rgb(150, 149, 149);
+  text-shadow: 2px 3px 5px rgb(150, 149, 149);
 }
 
 /* save palette */
@@ -205,17 +207,27 @@ input {
 .my-projects h3 {
   color: rgb(246, 240, 240);
   font-size: 3.3rem;
-  margin: 25px auto;
+  margin: 25px auto 35px;
 }
 
 .project-card {
   background:rgb(246, 240, 240);
   width: 500px;
   box-shadow: 8px 10px 14px black;
+  transition: ease all 1s;
+}
+
+.project-card:hover {
+  transform: scale(1.07);
 }
 
 li {
   display: flex;
+  transition: ease all 1s;
+}
+
+li:hover {
+  transform: scale(1.02);
 }
 
 ul {
