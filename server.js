@@ -50,6 +50,19 @@ app.get('/api/palettes', (request, response) => {
     });
 });
 
+app.delete('/api/palettes', (request, response) => {
+  const projectID = request.body.project_id
+  const id = request.body.id
+  database('projects').select().where('id', projectID)
+  database('palettes').select().where('id', id).del()
+    .then((palettes) => {
+      response.status(200).json(palettes);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
+
 app.post('/api/palettes', (request, response) => {
   const palette = request.body;
   for (let requiredParameter of ['name', 'color_1', 'color_2', 'color_3', 'color_4', 'color_5', 'project_id']) {
