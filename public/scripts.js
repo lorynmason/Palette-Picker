@@ -1,17 +1,17 @@
 const postProject = async() => {
-  // const projectName = $('.new-project-name').val()
-  // const response = await fetch('/api/projects', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         name: projectName
-  //       })
-  //     })
-  // if(!response.ok) {
-  //   throw Error(response.statusText)
-  // } 
+  const projectName = $('.new-project-name').val()
+  const response = await fetch('/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: projectName
+        })
+      })
+  if(!response.ok) {
+    throw Error(response.statusText)
+  } 
   fetchProjects()
   $('.new-project-name').val('')
 }
@@ -21,32 +21,95 @@ const fetchProjects = async () => {
   if(!response.ok) {
     throw Error(response.statusText)
   }
-  const projects = await response.json() 
-  displayProjects(projects)
+  const projects = await response.json()
+  const palettes = await fetchPalettes() 
+  displayProjects(projects, palettes)
 }
 
-const updateProjectList = (project, count) => {
+const updateProjectList = (project) => {
   $('#styledSelect1').append(
-    ` <option value=${count}>
+    ` <option class="options" value=${project.id}>
       ${project.name}
     </option>`)
 }
 
-const fetchPalettes = async () => {
-
+const postPalette = async() => {
+  const paletteName = $('.new-palette-name').val()
+  const selectedProject = $('#styledSelect1').find(":selected").val();
+  const color1 = $('.color-1-hex').text()
+  const color2 = $('.color-2-hex').text()
+  const color3 = $('.color-3-hex').text()
+  const color4 = $('.color-4-hex').text()
+  const color5 = $('.color-5-hex').text()
+  const response = await fetch('/api/palettes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: paletteName,
+          project_id: selectedProject,
+          color_1: color1,
+          color_2: color2,
+          color_3: color3,
+          color_4: color4,
+          color_5: color5
+        })
+      })
+  if(!response.ok) {
+    throw Error(response.statusText)
+  } 
+  $('.new-palette-name').val('')
+  fetchProjects()
 }
 
-const displayProjects = (projects) => {
-  let count = 0
+const fetchPalettes = async () => {
+  const response = await fetch('/api/palettes')
+  if(!response.ok) {
+    throw Error(response.statusText)
+  }
+  const palettes = await response.json()
+  return palettes
+}
+
+
+const displayProjects = (projects, palettes) => {
+  $('.project-list').children().remove()
+  $('#styledSelect1').children('.options').remove()
   projects.map(project => {
-    count++
+    project.palettes = []
+    palettes.forEach(palette => {
+      if(project.id === palette.project_id){
+        project.palettes.push(palette)
+      }
+    })
     displayProjectCard(project)
-    updateProjectList(project, count)
+    updateProjectList(project)
   })
 }
 
 const displayProjectCard = project => {
-  $('.project-list').append(`<div class="project-card"><h4>${project.name}</h4></div>`)
+  $(`.project-list`).append(`<div class="project-card"><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
+  project.palettes.map(palette => {
+    $(`.palette-list${project.id}`).append(`
+    <h6>${palette.name}</h6>
+    <li>
+      <div class="project-color ${project.id}-${palette.id}-1"></div>
+      <div class="project-color ${project.id}-${palette.id}-2"></div>
+      <div class="project-color ${project.id}-${palette.id}-3"></div>
+      <div class="project-color ${project.id}-${palette.id}-4"></div>
+      <div class="project-color ${project.id}-${palette.id}-5"></div>
+    </li>`)
+    setColor(project, palette)
+  })
+}
+
+const setColor = (project, palette) => {
+  $(`.${project.id}-${palette.id}-1`).css('background', palette.color_1)
+  $(`.${project.id}-${palette.id}-2`).css('background', palette.color_2)
+  $(`.${project.id}-${palette.id}-3`).css('background', palette.color_3)
+  $(`.${project.id}-${palette.id}-4`).css('background', palette.color_4)
+  $(`.${project.id}-${palette.id}-5`).css('background', palette.color_5)
 }
 
 const randomHex = () => {
@@ -103,3 +166,5 @@ $('i').on('click', (e) => {
 })
 
 $('.save-project-name').on('click', postProject)
+
+$('.save-palette').on('click', postPalette)

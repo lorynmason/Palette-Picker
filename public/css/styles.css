@@ -149,9 +149,36 @@ h3 {
   box-shadow: 6px 8px 10px rgb(150, 149, 149);
 }
 
+/* my projects */
+.project-color {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+}
+
 .my-projects {
   background: rgb(48, 47, 47);
 }
 .my-projects h3 {
   color: rgb(246, 240, 240);
+}
+
+.project-card {
+  background:rgb(246, 240, 240);
+  margin: 10px;
+}
+
+li {
+  display: flex;
+}
+
+h4 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+h6 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 5px;
 }
