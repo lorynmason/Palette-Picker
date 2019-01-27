@@ -109,7 +109,7 @@ const displayProjectCard = project => {
     $(`.palette-list${project.id}`).append(`
     <h6>${palette.name}</h6>
     <i id="trash-can" class="fas fa-trash-alt"></i>
-    <li class="${project.id} ${palette.id}">
+    <li class="${project.id} ${palette.id}" alt="${palette.color_1} ${palette.color_2} ${palette.color_3} ${palette.color_4} ${palette.color_5}">
       <div class="project-color ${project.id}-${palette.id}-1"></div>
       <div class="project-color ${project.id}-${palette.id}-2"></div>
       <div class="project-color ${project.id}-${palette.id}-3"></div>
@@ -143,6 +143,19 @@ const randomPalette = () => {
     palette.push(randomHex())
   }
   displayPalette(palette)
+}
+
+const displaySavedPalette = (palette) => {
+  $('.color-1').css('background', palette[0])
+  $('.color-1-hex').text(palette[0])
+  $('.color-2').css('background', palette[1])
+  $('.color-2-hex').text(palette[1])
+  $('.color-3').css('background', palette[2])
+  $('.color-3-hex').text(palette[2])
+  $('.color-4').css('background', palette[3])
+  $('.color-4-hex').text(palette[3])
+  $('.color-5').css('background', palette[4])
+  $('.color-5-hex').text(palette[4])
 }
 
 const displayPalette = (palette) => {
@@ -186,3 +199,8 @@ $('.save-project-name').on('click', postProject)
 $('.save-palette').on('click', postPalette)
 
 $('.project-list').on('click', '#trash-can', deletePalette)
+
+$('.project-list').on('click', 'li', (e) => {
+  const palette = $(e.target).parent().attr('alt').split(' ')
+  displaySavedPalette(palette)
+})
