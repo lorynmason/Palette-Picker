@@ -72,6 +72,21 @@ const fetchPalettes = async () => {
   return palettes
 }
 
+const deletePalette = async (e) => {
+  const IDs = $(e.target).next().attr("class").split(' ')
+  const response = await fetch('/api/palettes', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: IDs[1],
+      project_id: IDs[0]
+    })
+  })
+  fetchProjects()
+}
+
 
 const displayProjects = (projects, palettes) => {
   $('.project-list').children().remove()
@@ -94,7 +109,7 @@ const displayProjectCard = project => {
     $(`.palette-list${project.id}`).append(`
     <h6>${palette.name}</h6>
     <i id="trash-can" class="fas fa-trash-alt"></i>
-    <li>
+    <li class="${project.id} ${palette.id}">
       <div class="project-color ${project.id}-${palette.id}-1"></div>
       <div class="project-color ${project.id}-${palette.id}-2"></div>
       <div class="project-color ${project.id}-${palette.id}-3"></div>
@@ -169,3 +184,5 @@ $('i').on('click', (e) => {
 $('.save-project-name').on('click', postProject)
 
 $('.save-palette').on('click', postPalette)
+
+$('.project-list').on('click', '#trash-can', deletePalette)
