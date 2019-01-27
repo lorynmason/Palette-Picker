@@ -118,11 +118,11 @@ const displayProjects = (projects, palettes) => {
 }
 
 const displayProjectCard = project => {
-  $(`.project-list`).append(`<div class="project-card" id="${project.id}"><i id="exit" class="fas fa-times-circle"></i><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
+  $(`.project-list`).append(`<div class="project-card" id="${project.id}"><i id="exit" class="fas fa-times-circle" title="Delete ${project.name} Project"></i><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
   project.palettes.map(palette => {
     $(`.palette-list${project.id}`).append(`
     <h6>${palette.name}</h6>
-    <i id="trash-can" class="fas fa-trash-alt"></i>
+    <i id="trash-can" class="fas fa-trash-alt" title="Delete ${palette.name} Palette"></i>
     <li class="${project.id} ${palette.id}" alt="${palette.color_1} ${palette.color_2} ${palette.color_3} ${palette.color_4} ${palette.color_5}">
       <div class="project-color ${project.id}-${palette.id}-1"></div>
       <div class="project-color ${project.id}-${palette.id}-2"></div>

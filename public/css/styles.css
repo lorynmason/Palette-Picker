@@ -42,13 +42,13 @@ header h1 {
 }
 
 i, p {
-  /* font-family: 'Contrail One', cursive; */
   font-size: 2.2rem;
   text-align: center;
   color: rgb(37, 37, 37);
   margin: 5px;
   letter-spacing: 3px;
   font-weight: bolder;
+  transition: ease all 1s;
   text-shadow: 
     .5px .5px #FFF,
     -.5px -.5px #FFF, 
@@ -56,12 +56,17 @@ i, p {
     .5px -.5px #FFF;
 }
 
+.color i:hover {
+  color: rgb(151, 2, 2);
+  cursor: pointer;
+  font-size: 2.7rem;
+}
+
 /* new-project */
 
 h3 {
   font-size: 3rem;
   text-align: center;
-  /* font-family: 'Contrail One', cursive; */
   margin: 20px auto 10px;
   text-shadow: 8px 10px 14px black;
 }
@@ -74,10 +79,6 @@ h3 {
   background:rgb(255, 255, 255);
 }
 
-/* .new-projects input {
-  background: #FFF;
-} */
-
 .save-project-name {
   margin: 10px 0 20px;
   background: rgb(48, 47, 47);
@@ -87,7 +88,7 @@ h3 {
 }
 
 .create-new {
-  text-shadow: 2px 3px 5px rgb(150, 149, 149);
+  text-shadow: 2px 2px 5px rgb(170, 170, 170);
 }
 
 /* save palette */
@@ -99,11 +100,7 @@ h3 {
 .save-this-palette {
   margin: 20px auto 10px;
   color: rgb(246, 240, 240);
-  text-shadow: 3px 4px 7px rgb(39, 39, 39);
-}
-
-.new-palette {
-  /* margin-top: 20px; */
+  text-shadow: 3px 4px 7px rgb(15, 15, 15);
 }
 
 button {
@@ -111,7 +108,6 @@ button {
   outline: none;
   background: rgb(246, 240, 240);
   color: black;
-  /* font-family: 'Contrail One', cursive; */
   font-size: 2rem;
   padding: 5px 25px;
   margin: 0 auto 20px;
@@ -149,7 +145,6 @@ button:hover {
   width: 100%;
   padding: 12px 55px 15px 15px;
   color:rgb(48, 47, 47);
-  /* font-family: 'Contrail One', cursive; */
   font-size: 1.4rem;
 }
 
@@ -163,11 +158,9 @@ button:hover {
   content: "▼";
   text-align: center;
   color:rgb(48, 47, 47);
-  /* font-family: 'Contrail One', cursive; */
   font-size: 2rem;
   font-weight: bolder;
   padding: 12px 0 0;
-  /* border-left: 2px solid rgb(1, 192, 151); */
   z-index: -1;
 }
 
@@ -178,8 +171,11 @@ input {
   outline: none;
   background: rgb(246, 240, 240);
   color: black;
-  /* font-family: 'Contrail One', cursive; */
   font-size: 1.69rem;
+}
+
+input::placeholder {
+  padding-left: 5px;
 }
 
 .div-save-palette {
@@ -194,9 +190,6 @@ input {
 }
 
 /* my projects */
-.my-projects {
-  /* border-top: 8px solid rgb(1, 192, 151);   */
-}
 .project-color {
   height: 50px;
   width: 150px;
@@ -210,7 +203,7 @@ input {
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 500px);
-  grid-gap: 60px 60px;
+  grid-gap: 60px 160px;
   margin: 0 auto 40px;
   justify-content: center;
   width: 100%;
@@ -242,6 +235,7 @@ li {
 li:hover {
   transform: scale(1.04);
   cursor: pointer;
+  box-shadow: 2px 3px 5px rgb(100, 100, 100);
 }
 
 ul {
@@ -256,7 +250,6 @@ h4 {
 
 h6 {
   font-size: 1.5rem;
-  /* margin: 50px auto; */
   display: inline;
 }
 
@@ -283,6 +276,7 @@ h6 {
   display: none;
   transition: ease all 1s;
   font-size: 1.3rem;
+  margin: 12px 10px 0 -33px;
 }
 
 .project-card:hover #exit {
