@@ -1,7 +1,7 @@
 main {
   display: grid;
   grid-template-columns: repeat(2, 50vw);
-  grid-template-rows: repeat(2, 700px);
+  /* grid-template-rows: repeat(2, 700px); */
 }
 
 /* header */
@@ -112,7 +112,7 @@ input {
 }
 
 .color {
-  height: 140px;
+  height: 115px;
   width: 100%;
   transition: ease all 1s;
   display: flex;
@@ -122,13 +122,14 @@ input {
 }
 
 i, p {
-  font-family: 'Cookie', cursive;  
-  font-size: 2.5rem;
+  /* font-family: 'Cookie', cursive; */
+  font-family: 'Contrail One', cursive;
+  font-size: 2.2rem;
   text-align: center;
   color: rgb(37, 37, 37);
   margin: 5px;
   letter-spacing: 4px;
-  font-weight: bold;
+  font-weight: bolder;
   text-shadow: 
     .5px .5px #FFF,
     -.5px -.5px #FFF, 
@@ -139,7 +140,7 @@ i, p {
 /* new-project */
 
 h3 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 40px;
   text-align: center;
   font-family: 'Contrail One', cursive;
@@ -147,6 +148,12 @@ h3 {
 
 .save-project-name {
   box-shadow: 6px 8px 10px rgb(150, 149, 149);
+}
+
+/* save palette */
+
+.save {
+  background: rgb(48, 47, 47);
 }
 
 /* my projects */
