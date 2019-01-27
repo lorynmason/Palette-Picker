@@ -87,6 +87,21 @@ const deletePalette = async (e) => {
   fetchProjects()
 }
 
+const deleteProjects = async (e) => {
+  // const IDs = $(e.target).next().attr("class").split(' ')
+  // const response = await fetch('/api/palettes', {
+  //   method: 'DELETE',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     id: IDs[1],
+  //     project_id: IDs[0]
+  //   })
+  // })
+  // fetchProjects()
+}
+
 
 const displayProjects = (projects, palettes) => {
   $('.project-list').children().remove()
@@ -199,6 +214,8 @@ $('.save-project-name').on('click', postProject)
 $('.save-palette').on('click', postPalette)
 
 $('.project-list').on('click', '#trash-can', deletePalette)
+
+$('.project-list').on('click', '#exit', deleteProject)
 
 $('.project-list').on('click', 'li', (e) => {
   const palette = $(e.target).parent().attr('alt').split(' ')
