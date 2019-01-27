@@ -1,3 +1,7 @@
+* {
+  font-family: 'Contrail One', cursive;
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(2, 50vw);
@@ -28,7 +32,7 @@ header h1 {
 }
 
 .color {
-  height: 115px;
+  height: 110px;
   width: 100%;
   transition: ease all 1s;
   display: flex;
@@ -38,7 +42,7 @@ header h1 {
 }
 
 i, p {
-  font-family: 'Contrail One', cursive;
+  /* font-family: 'Contrail One', cursive; */
   font-size: 2.2rem;
   text-align: center;
   color: rgb(37, 37, 37);
@@ -56,28 +60,50 @@ i, p {
 
 h3 {
   font-size: 3rem;
-  margin: 40px;
   text-align: center;
-  font-family: 'Contrail One', cursive;
+  /* font-family: 'Contrail One', cursive; */
+  margin: 20px auto 10px;
+  text-shadow: 8px 10px 14px black;
 }
 
+.new-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background:rgb(255, 255, 255);
+}
+
+/* .new-projects input {
+  background: #FFF;
+} */
+
 .save-project-name {
-  box-shadow: 6px 8px 10px rgb(150, 149, 149);
+  margin: 10px 0 20px;
+  background: rgb(48, 47, 47);
+  color:rgb(246, 240, 240);
+  box-shadow: 4px 5px 7px rgb(150, 149, 149);
+  background: rgb(92, 91, 91);
+}
+
+.create-new {
+  text-shadow: 2px 3px 5px rgb(150, 149, 149);
 }
 
 /* save palette */
 
 .save {
-  background: rgb(48, 47, 47);
+  background: rgb(72, 73, 76);
 }
 
 .save-this-palette {
   margin: 20px auto 10px;
   color: rgb(246, 240, 240);
+  text-shadow: 3px 4px 7px rgb(39, 39, 39);
 }
 
 .new-palette {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 button {
@@ -85,18 +111,18 @@ button {
   outline: none;
   background: rgb(246, 240, 240);
   color: black;
-  font-family: 'Contrail One', cursive;
+  /* font-family: 'Contrail One', cursive; */
   font-size: 2rem;
   padding: 5px 25px;
   margin: 0 auto 20px;
   display: block;
   box-shadow: 8px 10px 14px black;
   border-radius: 5px;
-  transition: ease all .7s;
+  transition: ease all 1s;
 }
 
 button:hover {
-  background: rgb(77, 129, 212);
+  background: rgb(1, 192, 151);
   color: white;
   cursor: pointer;
 }
@@ -106,7 +132,7 @@ button:hover {
   display: inline-block;
   width: 200px;
   margin: 0 5px;
-  border: 1px solid rgb(77, 129, 212);
+  border: 2px solid rgb(1, 192, 151);
   background-color: rgb(246, 240, 240);
   z-index: 10;
 }
@@ -123,7 +149,7 @@ button:hover {
   width: 100%;
   padding: 12px 55px 15px 15px;
   color:rgb(48, 47, 47);
-  font-family: 'Contrail One', cursive;
+  /* font-family: 'Contrail One', cursive; */
   font-size: 1.4rem;
 }
 
@@ -134,24 +160,25 @@ button:hover {
   width: 50px;
   height: 100%;
   line-height: 38px;
-  content: "∨";
+  content: "▼";
   text-align: center;
   color:rgb(48, 47, 47);
-  font-family: 'Contrail One', cursive;
-  font-size: 2.5rem;
+  /* font-family: 'Contrail One', cursive; */
+  font-size: 2rem;
   font-weight: bolder;
-  padding-top: 7px;
-  border-left: 1px solid #3C1C78;
+  padding: 12px 0 0;
+  /* border-left: 2px solid rgb(1, 192, 151); */
   z-index: -1;
 }
 
 input {
+  height: 57px;
   margin: 0 5px;
   border: none;
   outline: none;
   background: rgb(246, 240, 240);
   color: black;
-  font-family: 'Contrail One', cursive;
+  /* font-family: 'Contrail One', cursive; */
   font-size: 1.69rem;
 }
 
@@ -163,38 +190,70 @@ input {
 
 .save-palette {
   margin-top: 20px;
+  box-shadow: 3px 4px 7px rgb(39, 39, 39);
 }
 
 /* my projects */
+.my-projects {
+  /* border-top: 8px solid rgb(1, 192, 151);   */
+}
 .project-color {
   height: 50px;
-  width: 50px;
-  margin: 5px;
+  width: 150px;
 }
 
 .my-projects {
   background: rgb(48, 47, 47);
+  grid-column: span 2;
 }
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  grid-gap: 60px 60px;
+  margin: 0 auto 40px;
+  justify-content: center;
+  width: 100%;
+}
+
 .my-projects h3 {
   color: rgb(246, 240, 240);
+  font-size: 3.3rem;
+  margin: 25px auto 35px;
 }
 
 .project-card {
   background:rgb(246, 240, 240);
-  margin: 10px;
+  width: 500px;
+  box-shadow: 8px 10px 14px black;
+  transition: ease all 1s;
+}
+
+.project-card:hover {
+  transform: scale(1.07);
 }
 
 li {
   display: flex;
+  transition: ease all 1s;
+}
+
+li:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
+ul {
+  margin: 0 20px 20px;
 }
 
 h4 {
   text-align: center;
   font-size: 2rem;
+  margin: 10px 0 0;
 }
 
 h6 {
-  text-align: center;
   font-size: 1.5rem;
   margin: 5px;
 }
