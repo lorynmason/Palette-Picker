@@ -56,13 +56,21 @@ i, p {
 
 h3 {
   font-size: 3rem;
-  margin: 40px;
   text-align: center;
   font-family: 'Contrail One', cursive;
+  margin: 20px auto 10px;
+}
+
+.new-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .save-project-name {
-  box-shadow: 6px 8px 10px rgb(150, 149, 149);
+  margin: 10px 0 20px;
+  box-shadow: 4px 5px 7px rgb(150, 149, 149);
 }
 
 /* save palette */
@@ -96,7 +104,7 @@ button {
 }
 
 button:hover {
-  background: rgb(77, 129, 212);
+  background: rgb(1, 192, 151);
   color: white;
   cursor: pointer;
 }
@@ -106,7 +114,7 @@ button:hover {
   display: inline-block;
   width: 200px;
   margin: 0 5px;
-  border: 1px solid rgb(77, 129, 212);
+  border: 2px solid rgb(1, 192, 151);
   background-color: rgb(246, 240, 240);
   z-index: 10;
 }
@@ -134,18 +142,19 @@ button:hover {
   width: 50px;
   height: 100%;
   line-height: 38px;
-  content: "∨";
+  content: "▼";
   text-align: center;
   color:rgb(48, 47, 47);
   font-family: 'Contrail One', cursive;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bolder;
-  padding-top: 7px;
-  border-left: 1px solid #3C1C78;
+  padding: 12px 0 0;
+  /* border-left: 2px solid rgb(1, 192, 151); */
   z-index: -1;
 }
 
 input {
+  height: 57px;
   margin: 0 5px;
   border: none;
   outline: none;
@@ -174,6 +183,7 @@ input {
 
 .my-projects {
   background: rgb(48, 47, 47);
+  grid-column: span 2;
 }
 .my-projects h3 {
   color: rgb(246, 240, 240);
