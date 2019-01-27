@@ -1,7 +1,6 @@
 main {
   display: grid;
   grid-template-columns: repeat(2, 50vw);
-  grid-template-rows: repeat(2, 700px);
 }
 
 /* header */
@@ -14,20 +13,71 @@ header {
   align-items: center;
 }
 
-.div-save-palette{
-  margin: 20px 0;
-}
-
 header h1 {
-  font-size: 9.5rem;
+  font-size: 12.5rem;
   text-align: center;
   font-family: 'Cookie', cursive;
-  margin: 40px 60px 20px;
+  margin: 40px 60px 10px;
   text-shadow: 8px 10px 14px black;
 }
 
+/* palette-picker */
+
+.palette-picker {
+  display: flex;
+}
+
+.color {
+  height: 115px;
+  width: 100%;
+  transition: ease all 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+i, p {
+  font-family: 'Contrail One', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  color: rgb(37, 37, 37);
+  margin: 5px;
+  letter-spacing: 3px;
+  font-weight: bolder;
+  text-shadow: 
+    .5px .5px #FFF,
+    -.5px -.5px #FFF, 
+    -.5px .5px #FFF, 
+    .5px -.5px #FFF;
+}
+
+/* new-project */
+
+h3 {
+  font-size: 3rem;
+  margin: 40px;
+  text-align: center;
+  font-family: 'Contrail One', cursive;
+}
+
+.save-project-name {
+  box-shadow: 6px 8px 10px rgb(150, 149, 149);
+}
+
+/* save palette */
+
+.save {
+  background: rgb(48, 47, 47);
+}
+
+.save-this-palette {
+  margin: 20px auto 10px;
+  color: rgb(246, 240, 240);
+}
+
 .new-palette {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 button {
@@ -60,6 +110,7 @@ button:hover {
   background-color: rgb(246, 240, 240);
   z-index: 10;
 }
+
 .custom-select select {
   border: none;
   outline: none;
@@ -71,9 +122,11 @@ button:hover {
   margin: 0;
   width: 100%;
   padding: 12px 55px 15px 15px;
-  font-size: 14px;
-  color: rgb(2, 2, 2);
+  color:rgb(48, 47, 47);
+  font-family: 'Contrail One', cursive;
+  font-size: 1.4rem;
 }
+
 .custom-select:after {
   position: absolute;
   right: 0;
@@ -83,8 +136,11 @@ button:hover {
   line-height: 38px;
   content: "∨";
   text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 24px;
+  color:rgb(48, 47, 47);
+  font-family: 'Contrail One', cursive;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  padding-top: 7px;
   border-left: 1px solid #3C1C78;
   z-index: -1;
 }
@@ -96,57 +152,17 @@ input {
   background: rgb(246, 240, 240);
   color: black;
   font-family: 'Contrail One', cursive;
-  font-size: 1.8rem;
+  font-size: 1.69rem;
 }
 
 .div-save-palette {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
-/* palette-picker */
-
-.palette-picker {
-  display: flex;
-}
-
-.color {
-  height: 140px;
-  width: 100%;
-  transition: ease all 1s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-i, p {
-  font-family: 'Cookie', cursive;  
-  font-size: 2.5rem;
-  text-align: center;
-  color: rgb(37, 37, 37);
-  margin: 5px;
-  letter-spacing: 4px;
-  font-weight: bold;
-  text-shadow: 
-    .5px .5px #FFF,
-    -.5px -.5px #FFF, 
-    -.5px .5px #FFF, 
-    .5px -.5px #FFF;
-}
-
-/* new-project */
-
-h3 {
-  font-size: 4rem;
-  margin: 40px;
-  text-align: center;
-  font-family: 'Contrail One', cursive;
-}
-
-.save-project-name {
-  box-shadow: 6px 8px 10px rgb(150, 149, 149);
+.save-palette {
+  margin-top: 20px;
 }
 
 /* my projects */
