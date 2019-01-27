@@ -92,8 +92,8 @@ const displayProjectCard = project => {
   $(`.project-list`).append(`<div class="project-card"><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
   project.palettes.map(palette => {
     $(`.palette-list${project.id}`).append(`
+    <h6>${palette.name}</h6>
     <li>
-      <h6>${palette.name}</h6>
       <div class="project-color ${project.id}-${palette.id}-1"></div>
       <div class="project-color ${project.id}-${palette.id}-2"></div>
       <div class="project-color ${project.id}-${palette.id}-3"></div>
