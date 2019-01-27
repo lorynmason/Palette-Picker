@@ -89,10 +89,11 @@ const displayProjects = (projects, palettes) => {
 }
 
 const displayProjectCard = project => {
-  $(`.project-list`).append(`<div class="project-card"><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
+  $(`.project-list`).append(`<div class="project-card"><i id="exit" class="fas fa-times-circle"></i><h4>${project.name}</h4><ul class="palette-list${project.id}"></ul></div>`)
   project.palettes.map(palette => {
     $(`.palette-list${project.id}`).append(`
     <h6>${palette.name}</h6>
+    <i id="trash-can" class="fas fa-trash-alt"></i>
     <li>
       <div class="project-color ${project.id}-${palette.id}-1"></div>
       <div class="project-color ${project.id}-${palette.id}-2"></div>

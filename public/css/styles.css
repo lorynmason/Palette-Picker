@@ -236,6 +236,7 @@ input {
 li {
   display: flex;
   transition: ease all 1s;
+  margin: 5px auto 20px;
 }
 
 li:hover {
@@ -248,12 +249,47 @@ ul {
 }
 
 h4 {
-  text-align: center;
   font-size: 2rem;
-  margin: 10px 0 0;
+  margin: 10px auto 0;
+  text-align: center;
 }
 
 h6 {
   font-size: 1.5rem;
-  margin: 5px;
+  /* margin: 50px auto; */
+  display: inline;
+}
+
+#trash-can {
+  display: none;
+  font-size: 1.2rem;
+  margin-top: -15px;
+  transition: ease all 1s;
+}
+
+.project-card:hover #trash-can {
+  display: inline;
+}
+
+#trash-can:hover {
+  color: rgb(151, 2, 2);
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#exit {
+  text-align: center;
+  float: right;
+  display: none;
+  transition: ease all 1s;
+  font-size: 1.3rem;
+}
+
+.project-card:hover #exit {
+  display: inline;
+}
+
+#exit:hover {
+  color: rgb(151, 2, 2);
+  cursor: pointer;
 }
