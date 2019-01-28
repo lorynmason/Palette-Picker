@@ -21,8 +21,68 @@ header h1 {
   font-size: 12.5rem;
   text-align: center;
   font-family: 'Cookie', cursive;
-  margin: 40px 60px 10px;
+  margin: 30px 0 10px;
   text-shadow: 8px 10px 14px black;
+}
+
+span {
+  display: block;
+}
+
+.header-part-1 {
+  position: relative;
+  animation: drop-in-1 1.5s linear;
+}
+
+.header-part-2 {
+  position: relative;
+  animation: drop-in-2 1s linear;
+}
+
+@keyframes drop-in-2 {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    top: -300px;
+    transform: skew(-30deg);
+    opacity: 0;
+  }
+
+  80% {
+    transform: skew(-30deg);
+  }
+
+  90% {
+    transform: skew(10deg);
+  }
+
+  100% {
+    top: 0px;
+    transform: none;
+  }
+}
+
+@keyframes drop-in-1 {
+  0% {
+    top: -600px;
+    transform: skew(-30deg);
+    opacity: 0;
+  }
+
+  80% {
+    transform: skew(-30deg);
+  }
+
+  90% {
+    transform: skew(10deg);
+  }
+
+  100% {
+    top: 0px;
+    transform: none;
+  }
 }
 
 /* palette-picker */
