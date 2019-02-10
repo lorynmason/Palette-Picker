@@ -56,7 +56,8 @@ Deleting
 ````
 As a user,
 
-I should be able to delete a palette from a project folder, and I should be able to delete a whole project, which removes it from the page and database.
+I should be able to delete a palette from a project folder, and I should be able to delete a whole project, 
+which removes it from the page and database.
 ```` 
 
 ````
